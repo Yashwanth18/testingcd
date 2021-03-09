@@ -1,26 +1,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-leader
+  name: gke-test
   labels:
-    app: flask
-    role: leader
-    tier: backend
+    app: gke-test
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flask
+      app: gke-test
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
   template:
     metadata:
       labels:
-        app: flask
-        role: leader
-        tier: backend
+        app: gke-test
     spec:
       containers:
-      - name: leader
-        image: "yashwanth1801/testingcd:e1e9337"
+      - name: gke-test
+        image: gcr.io/PROJECT_ID/IMAGE:TAG
         resources:
           requests:
             cpu: 100m
