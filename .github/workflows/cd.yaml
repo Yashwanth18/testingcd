@@ -6,7 +6,7 @@ on:
     - master
 
 env:
-  PROJECT_ID: grand-radio-307118
+  PROJECT_ID: 833971136656
   GKE_CLUSTER: cluster-1
   GKE_ZONE: us-central1-c
   DEPLOYMENT_NAME: gke-test
