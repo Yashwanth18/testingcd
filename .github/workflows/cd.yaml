@@ -6,7 +6,7 @@ on:
     - master
 
 env:
-  PROJECT_ID: 833971136656
+  PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: cluster-1
   GKE_ZONE: us-central1-c
   DEPLOYMENT_NAME: gke-test
@@ -36,7 +36,7 @@ jobs:
         gcloud config set container/use_client_certificate False
     # Get the GKE credentials so we can deploy to the cluster
     - run: |-
-        gcloud container clusters get-credentials cluster-1 --zone us-central1-c
+        gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
     # Build the Docker image
     - name: Build
       run: |-
