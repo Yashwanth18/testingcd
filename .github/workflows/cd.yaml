@@ -7,7 +7,7 @@ on:
 
 env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
-  GKE_CLUSTER: cluster-1
+  GKE_CLUSTER: gke-testing-cluster
   GKE_ZONE: us-central1-c
   DEPLOYMENT_NAME: gke-test
   IMAGE: static-site
@@ -30,12 +30,11 @@ jobs:
 
     # Configure Docker to use the gcloud command-line tool as a credential
     # helper for authentication
-    - run: |-
-        gcloud auth list
+
     - run: |-
         gcloud --quiet auth configure-docker
     - run: |-
-        gcloud config set container/use_client_certificate False
+        gcloud container clusters create "$GKE_CLUSTER" --num-nodes=1 --zone "$GKE_ZONE"
     # Get the GKE credentials so we can deploy to the cluster
 #     - run: |-
 #         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
