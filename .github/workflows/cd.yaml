@@ -32,6 +32,8 @@ jobs:
     # helper for authentication
     - run: |-
         gcloud --quiet auth configure-docker
+    - run: |-
+        gcloud config set container/use_client_certificate False
     # Get the GKE credentials so we can deploy to the cluster
     - run: |-
         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
