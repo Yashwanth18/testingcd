@@ -34,7 +34,7 @@ jobs:
     - run: |-
         gcloud --quiet auth configure-docker
     - run: |-
-        gcloud container clusters create "$GKE_CLUSTER" --num-nodes=1 --zone "$GKE_ZONE"
+        gcloud container clusters create-auto "$GKE_CLUSTER" --zone "$GKE_ZONE"
     # Get the GKE credentials so we can deploy to the cluster
 #     - run: |-
 #         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
