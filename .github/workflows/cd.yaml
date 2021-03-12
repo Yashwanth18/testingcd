@@ -69,6 +69,7 @@ jobs:
         kubectl get services -o wide
 
   run-integration-tests:
+    needs: setup-build-publish-deploy
     name: run the integration tests
     runs-on: ubuntu-latest
 
