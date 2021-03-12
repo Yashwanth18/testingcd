@@ -20,8 +20,8 @@ spec:
         app: gke-test-selenium
     spec:
       containers:
-      - name: gke-test-selenium
-        image: selenium-test
+      - name: gke-test-selenium docker pull
+        image: gcr.io/grand-radio-307118/selenium/static-site:75b3ef025835afc76bbe78bc90e17331a854f009
         resources:
           requests:
             cpu: 100m
