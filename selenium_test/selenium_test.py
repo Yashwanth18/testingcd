@@ -25,12 +25,12 @@ class BrowserTest:
             self.browser.set_page_load_timeout(30)
             self.browser.get(config['selenium_test_url'])
             sleep(randint(5, 10) + random())
-            assert 'URL Shortener' in self.browser.title
+            assert 'React App' in self.browser.title
             print("Pass openhome")
         except Exception as e:
             logging.error("Failed open_home!!!"+ config['selenium_test_url'] 
             +"\n" + traceback.format_exc())
-            print("Failed open_home!!!" + traceback.format_exc()))
+            print("Failed open_home!!!" + traceback.format_exc())
             sys.exit()
 
 
@@ -52,7 +52,7 @@ class BrowserTest:
             print("Pass check empty link")
         except AssertionError as e:
             logging.error("Falied check_empty_link\n" + traceback.format_exc())
-            print("Falied check_empty_link" + traceback.format_exc()))
+            print("Falied check_empty_link" + traceback.format_exc())
 
     # def check_regular_link(self):
     #     print("----------------------------------------")
@@ -230,7 +230,7 @@ class BrowserTest:
             print('Pass, integration test')
         except Exception:
             logging.error("Falied, integration test: https://www.northeastern.edu/\n" + traceback.format_exc())
-            print("Failed, integration test!!!" + traceback.format_exc()))
+            print("Failed, integration test!!!" + traceback.format_exc())
 
     def close_browser(self):
         print("***********************************************")
