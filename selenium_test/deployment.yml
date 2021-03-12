@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: gke-test-selenium
-        image: gcr.io/PROJECT_ID/selenium/IMAGE:TAG
+        image: gcr.io/selenium-test-imagename
         resources:
           requests:
             cpu: 100m
